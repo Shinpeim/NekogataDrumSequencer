@@ -1,0 +1,25 @@
+{
+  "name": "FingerDrumSequencer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cp src/index.html build/index.html && webpack",
+    "watch": "cp src/index.html build/index.html && webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Shinpeim/FingerDrumSequencer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shinpeim/FingerDrumSequencer/issues"
+  },
+  "homepage": "https://github.com/Shinpeim/FingerDrumSequencer#readme",
+  "devDependencies": {
+    "webpack": "^2.3.1"
+  }
+}
