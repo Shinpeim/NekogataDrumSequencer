@@ -1,15 +1,8 @@
-class Hello {
-  constructor() {
-    this.world = "world";
-  }
+import Vue from 'vue'
 
-  say() {
-    const h = (hello) =>  {
-      console.log(hello + " " + this.world);
-    }
-    h("hello");
-  }
-}
+import Application from './presentation/view_model/Application.vue'
 
-const h = new Hello();
-h.say();
+new Vue({
+    el: '#app',
+    components: { Application }
+});
