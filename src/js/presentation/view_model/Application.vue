@@ -1,34 +1,20 @@
 <style scoped>
-   div {
-       font-size: x-large;
-       cursor: pointer;
-   }
 </style>
 <template>
     <div>
-        <nav>
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a class="brand-logo">Finger Drum Sequencer</a>
-                </div>
-            </div>
-        </nav>
+        <navigation></navigation>
         <div class="container">
+            <control-panel></control-panel>
         </div>
     </div>
 </template>
 <script>
+    import Navigation from './Navigation.vue'
+    import ControlPanel from './ControlPanel.vue'
     export default {
-        data(){
-            return {
-                message: "click me"
-            }
+        components: {
+            Navigation,
+            ControlPanel
         },
-
-        methods: {
-            clicked(){
-                this.message = "clicked"
-            }
-        }
     }
 </script>
