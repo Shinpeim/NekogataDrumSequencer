@@ -5,8 +5,16 @@
    }
 </style>
 <template>
-    <div @click="clicked">
-        {{message}}
+    <div>
+        <nav>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a class="brand-logo">Finger Drum Sequencer</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        </div>
     </div>
 </template>
 <script>
