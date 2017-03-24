@@ -41,12 +41,10 @@
     </div>
 </template>
 <script>
-    import ServiceLocator from '../../usecase/UsecaseServiceLocator'
+    import Base from './Base'
 
     export default {
-        beforeCreate(){
-            this.usecase = ServiceLocator.resolve("SequencerUsecase");
-        },
+        mixins: [Base],
 
         data(){
             return {

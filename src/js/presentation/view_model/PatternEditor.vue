@@ -62,17 +62,17 @@
     </div>
 </template>
 <script>
-    import ServiceLocator from '../../usecase/UsecaseServiceLocator'
+    import Base from './Base'
 
     export default {
-        beforeCreate(){
-            this.usecase = ServiceLocator.resolve("SequencerUsecase");
-        },
+        mixins: [Base],
 
         created(){
-            this.usecase.sequencer.selectedPatternChanged.subscribe(() => {
-                this.selectedTrack = this.usecase.sequencer.selectedPattern.selectedTrack;
-            });
+            this.subscriptions.push(
+                this.usecase.sequencer.selectedPatternChanged.subscribe(() => {
+                    this.selectedTrack = this.usecase.sequencer.selectedPattern.selectedTrack;
+                })
+            );
         },
 
         data(){

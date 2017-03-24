@@ -10,11 +10,11 @@
     </div>
 </template>
 <script>
+    import ServiceLocator from '../../usecase/UsecaseServiceLocator'
     import Navigation from './Navigation.vue'
     import ControlPanel from './ControlPanel.vue'
     import PatternEditor from './PatternEditor.vue'
     import SequencerUsecase from '../../usecase/SequencerUsecase'
-    import ServiceLocator from '../../usecase/UsecaseServiceLocator'
 
     export default {
         components: {
