@@ -25,13 +25,13 @@
                             Pattern: {{selectedPatternId}}
                         </span>
                         <div>
-                            <input name="pattern" type="radio" value="1" id="radio-pattern-1" v-model="selectedPatternId"/>
+                            <input name="pattern" type="radio" value="1" id="radio-pattern-1" v-model="selectedPatternId" @change="setPatternId"/>
                             <label for="radio-pattern-1"></label>
-                            <input name="pattern" type="radio" value="2" id="radio-pattern-2" v-model="selectedPatternId"/>
+                            <input name="pattern" type="radio" value="2" id="radio-pattern-2" v-model="selectedPatternId" @change="setPatternId"/>
                             <label for="radio-pattern-2"></label>
-                            <input name="pattern" type="radio" value="3" id="radio-pattern-3" v-model="selectedPatternId"/>
+                            <input name="pattern" type="radio" value="3" id="radio-pattern-3" v-model="selectedPatternId" @change="setPatternId"/>
                             <label for="radio-pattern-3"></label>
-                            <input name="pattern" type="radio" value="4" id="radio-pattern-4" v-model="selectedPatternId"/>
+                            <input name="pattern" type="radio" value="4" id="radio-pattern-4" v-model="selectedPatternId" @change="setPatternId"/>
                             <label for="radio-pattern-4"></label>
                         </div>
                     </div>
@@ -46,10 +46,6 @@
     export default {
         created(){
             this.usecase = ServiceLocator.resolve("SequencerUsecase");
-
-            this.$watch('selectedPatternId', () => {
-                this.usecase.selectPattern(this.selectedPatternId);
-            });
         },
 
         data(){
@@ -65,6 +61,10 @@
                 this.bpm = parseInt(bpm);
 
                 this.$emit("bpmChanged", bpm)
+            },
+
+            setPatternId() {
+                this.usecase.selectPattern(this.selectedPatternId);
             }
         }
     }

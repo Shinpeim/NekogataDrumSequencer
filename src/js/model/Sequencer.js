@@ -1,6 +1,9 @@
 import Pattern from './Pattern.js'
 
 export default class {
+    /**
+     * @returns Pattern
+     */
     get selectedPattern(){
         return this.patterns[this.selectedPatternId];
     }
@@ -17,5 +20,6 @@ export default class {
 
     selectPattern(id) {
         this.selectedPatternId = id;
+        console.debug("pattern selected: " + this.selectedPatternId);
     }
 }

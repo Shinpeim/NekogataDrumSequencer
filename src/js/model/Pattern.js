@@ -1,6 +1,9 @@
 import Score from './Score'
 
 export default class {
+    /**
+     * @returns Score
+     */
     get selectedScore(){
         return this.scores[this.selectedTrack];
     }
@@ -14,5 +17,10 @@ export default class {
         }
 
         this.selectedTrack = this.tracks[0];
+    }
+
+    selectTrack(track){
+        this.selectedTrack = track;
+        console.debug("track selected: " + track);
     }
 }

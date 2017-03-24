@@ -1,4 +1,5 @@
 import Sequencer from '../model/Sequencer'
+import Notificator from '../lib/Notificator'
 
 export default class {
     constructor(){
@@ -7,5 +8,9 @@ export default class {
 
     selectPattern(id) {
         this.sequencer.selectPattern(id);
+    }
+
+    selectTrack(track) {
+        this.sequencer.selectedPattern.selectTrack(track);
     }
 }
