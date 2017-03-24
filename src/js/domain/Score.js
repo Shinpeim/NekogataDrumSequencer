@@ -1,9 +1,6 @@
 export default class {
-    constructor(){
-        this.notes = [
-            true, false, false, false, true, false, false, false,
-            true, false, false, false, true, false, false, false
-        ];
+    constructor(initialNotes){
+        this.notes = initialNotes;
     }
 
     toggleNote(index) {

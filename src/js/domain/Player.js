@@ -11,6 +11,9 @@ export default class {
     }
 
     togglePlayingState(){
+        if ( ! this.isSoundsInited ) {
+            return;
+        }
         if (this.playingState) {
             this._stop();
         } else {
