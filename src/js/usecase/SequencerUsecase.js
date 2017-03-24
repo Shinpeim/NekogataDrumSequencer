@@ -1,4 +1,4 @@
-import Sequencer from '../model/Sequencer'
+import Sequencer from '../domain/Sequencer'
 
 export default class {
     constructor(){
