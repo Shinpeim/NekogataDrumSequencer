@@ -3,7 +3,7 @@ import 'materialize-css/bin/materialize.js';
 import 'materialize-css/js/init.js';
 
 import Vue from 'vue'
-import Application from './presentation/view_model/Application.vue'
+import Application from './presentation/vue_components/Application.vue'
 
 new Vue({
     el: '#app',
