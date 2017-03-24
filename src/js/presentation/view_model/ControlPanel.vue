@@ -6,7 +6,9 @@
             <div class="card horizontal">
                 <div class="card-image left-pane">
                     <div class="card-content">
-                        <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">play_arrow</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light" @click="togglePlayingState">
+                            <i class="material-icons">{{playButtonIcon}}</i>
+                        </a>
                     </div>
                 </div>
                 <div class="card-stacked">
@@ -14,9 +16,9 @@
                         <span class="brown-text">
                             BPM: {{bpm}}
                         </span>
-                        <span class="range-field">
+                        <p class="range-field">
                             <input type="range" id="bpm-slider" min="10" max="360" :value="bpm" @input="setBpm"/>
-                        </span>
+                        </p>
                     </div>
                 </div>
                 <div class="card-stacked">
@@ -51,26 +53,52 @@
                 this.usecase.selectedPatternChanged.subscribe(() => {
                     this.selectedPatternId = this.usecase.sequencer.selectedPatternId;
                 })
-            )
+            );
+
+            this.subscriptions.push(
+                this.usecase.playingStateChanged.subscribe(() => {
+                    this.playingState = this.usecase.player.playingState;
+                })
+            );
+
+            this.subscriptions.push(
+                this.usecase.bpmChanged.subscribe(() => {
+                    this.bpm= this.usecase.player.bpm;
+                })
+            );
         },
 
         data(){
             return {
                 bpm: "120",
-                selectedPatternId: "1"
+                selectedPatternId: "1",
+                playingState: false
+            }
+        },
+
+        computed:{
+            playButtonIcon(){
+                if (this.playingState) {
+                    return 'stop';
+                } else {
+                    return 'play_arrow';
+                }
             }
         },
 
         methods: {
             setBpm(){
                 const bpm = document.getElementById("bpm-slider").value;
-                this.bpm = parseInt(bpm);
-
-                this.$emit("bpmChanged", bpm)
+                console.log(bpm);
+                this.usecase.setBpm(bpm);
             },
 
             setPatternId() {
                 this.usecase.selectPattern(this.selectedPatternId);
+            },
+
+            togglePlayingState(){
+                this.usecase.togglePlayingState();
             }
         }
     }
