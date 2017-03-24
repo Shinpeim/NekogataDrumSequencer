@@ -15,10 +15,8 @@
     import ControlPanel from './ControlPanel.vue'
     import PatternEditor from './PatternEditor.vue'
     import SequencerUsecase from '../../usecase/SequencerUsecase'
-
-    // todo: domain -> infrastructure
-    import BpmTicker from '../../domain/BpmTicker'
-    import Sound from '../../domain/Sound'
+    import BpmTicker from '../../infrastructure/BpmTicker'
+    import Sound from '../../infrastructure/Sound'
 
     export default {
         components: {

@@ -1,7 +1,5 @@
 import Sequencer from '../domain/Sequencer'
 import Player from '../domain/Player'
-import BpmTicker from '../domain/BpmTicker'
-import Sound from '../domain/Sound'
 import Notificator from '../lib/Notificator'
 
 export default class {
