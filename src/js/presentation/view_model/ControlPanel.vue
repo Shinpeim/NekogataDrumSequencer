@@ -46,6 +46,14 @@
     export default {
         mixins: [Base],
 
+        created(){
+            this.subscriptions.push(
+                this.usecase.selectedPatternChanged.subscribe(() => {
+                    this.selectedPatternId = this.usecase.sequencer.selectedPatternId;
+                })
+            )
+        },
+
         data(){
             return {
                 bpm: "120",

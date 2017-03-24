@@ -1,5 +1,4 @@
 import Pattern from './Pattern.js'
-import Notificator from '../lib/Notificator'
 
 export default class {
     /**
@@ -18,13 +17,10 @@ export default class {
         }
 
         this.selectedPatternId = this.patternIds[0];
-
-        this.selectedPatternChanged = new Notificator();
     }
 
     selectPattern(id) {
         this.selectedPatternId = id;
-        this.selectedPatternChanged.notify();
         console.debug("pattern selected: " + this.selectedPatternId);
     }
 }

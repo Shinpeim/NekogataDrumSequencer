@@ -7,6 +7,6 @@ export default class {
     }
 
     toggleNote(index) {
-        this.note[index] = ! this.note[index];
+        this.notes[index] = ! this.notes[index];
     }
 }
