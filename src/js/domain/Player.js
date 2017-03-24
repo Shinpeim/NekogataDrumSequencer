@@ -1,9 +1,13 @@
 export default class {
-    constructor(ticker){
+    constructor(ticker, sequencer, sounds){
+        this._sequencer = sequencer;
+        this._sounds = sounds;
+        this._ticker = ticker;
+
+        this.isSoundsInited = false;
         this.playingState = false;
         this.playingNoteIndex = null;
         this.bpm = 120;
-        this.ticker = ticker;
     }
 
     togglePlayingState(){
@@ -14,19 +18,29 @@ export default class {
         }
     }
 
+    initSounds() {
+        const promises = [];
+        for (const key in this._sounds) {
+            promises.push(this._sounds[key].setup());
+        }
+        return Promise.all(promises).then(()=>{
+            this.isSoundsInited = true;
+        });
+    }
+
     setBpm(bpm){
         this.bpm = bpm;
-        this.ticker.bpm = bpm;
+        this._ticker.bpm = bpm;
     }
 
     _play(){
         this.playingState = true;
-        this.ticker.start(this.bpm, () => this._playNextSound());
+        this._ticker.start(this.bpm, () => this._playNextSound());
     }
 
     _stop(){
         this.playingState = false;
-        this.ticker.stop();
+        this._ticker.stop();
     }
 
     _playNextSound(){
@@ -39,7 +53,18 @@ export default class {
         } else {
             this.playingNoteIndex += 1;
         }
-        console.debug("playing sound: " + this.playingNoteIndex);
+
+        this._playSound()
+    }
+
+    _playSound(){
+        const i = this.playingNoteIndex;
+        for (const track of this._sequencer.selectedPattern.tracks) {
+            if (this._sequencer.selectedPattern.scores[track].notes[i]) {
+                this._sounds[track].play();
+            }
+        }
+
     }
 }
 

@@ -16,6 +16,10 @@
     import PatternEditor from './PatternEditor.vue'
     import SequencerUsecase from '../../usecase/SequencerUsecase'
 
+    // todo: domain -> infrastructure
+    import BpmTicker from '../../domain/BpmTicker'
+    import Sound from '../../domain/Sound'
+
     export default {
         components: {
             Navigation,
@@ -24,7 +28,17 @@
         },
 
         beforeCreate() {
-            ServiceLocator.register('SequencerUsecase',new SequencerUsecase());
+            const ticker = new BpmTicker();
+            const sounds = {
+                "HH": new Sound('./sounds/hh.wav'),
+                "SD": new Sound('./sounds/sd.wav'),
+                "BD": new Sound('./sounds/bd.wav'),
+                "RS": new Sound('./sounds/rs.wav'),
+            };
+
+            const usecase = new SequencerUsecase(ticker, sounds);
+            usecase.initSound();
+            ServiceLocator.register('SequencerUsecase',usecase);
         }
     }
 </script>

@@ -1,15 +1,17 @@
 import Sequencer from '../domain/Sequencer'
 import Player from '../domain/Player'
 import BpmTicker from '../domain/BpmTicker'
+import Sound from '../domain/Sound'
 import Notificator from '../lib/Notificator'
 
 export default class {
-    constructor(){
+    constructor(ticker, sounds){
         this.sequencer = new Sequencer();
-        const ticker = new BpmTicker();
-        this.player = new Player(ticker);
+        this.player = new Player(ticker, this.sequencer, sounds);
 
         //Events
+        this.initializationFailed = new Notificator();
+        this.isSoundsInitedChanged = new Notificator();
         this.selectedPatternChanged = new Notificator();
         this.selectedTrackChanged = new Notificator();
         this.notesChanged = new Notificator();
@@ -17,10 +19,19 @@ export default class {
         this.playingNoteIndexChanged = new Notificator();
         this.bpmChanged = new Notificator();
 
-        // subscribe ticker events
+        // subscribe _ticker events
         ticker.ticked.subscribe(() => {
-            console.debug(this.player);
+            console.debug("ticked");
             this.playingNoteIndexChanged.notify();
+        });
+    }
+
+    initSound(){
+        this.player.initSounds().then(()=>{
+            this.isSoundsInitedChanged.notify();
+        }).catch((e) => {
+            console.error(e);
+            this.initializationFailed.notify();
         });
     }
 
