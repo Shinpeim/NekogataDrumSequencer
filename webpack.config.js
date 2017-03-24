@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
+const config = {
     entry: './src/js/index.js',
     output: {
         filename: 'bundle.js',
@@ -35,3 +35,15 @@ module.exports = {
         }
     }
 };
+
+if ( process.env.PRODUCTION ) {
+   config.plugins.push(
+       new webpack.optimize.UglifyJsPlugin({
+           compress: {
+               drop_console: true,
+           }
+       })
+   );
+}
+
+module.exports = config;
