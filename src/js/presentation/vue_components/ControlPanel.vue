@@ -17,7 +17,7 @@
                             BPM: {{bpm}}
                         </span>
                         <p class="range-field">
-                            <input type="range" id="bpm-slider" min="10" max="360" :value="bpm" @input="setBpm"/>
+                            <input type="range" id="bpm-slider" min="10" max="240" :value="bpm" @input="setBpm"/>
                         </p>
                     </div>
                 </div>
