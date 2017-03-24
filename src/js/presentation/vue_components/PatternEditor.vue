@@ -4,10 +4,10 @@
 <template>
     <div class="row">
         <div class="col s12">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title brown-text">PatternEditor</span>
-                    <span class="brown-text">
+            <div class="card brown lighten-5">
+                <div class="card-content brown-text">
+                    <span class="card-title">PatternEditor</span>
+                    <span>
                         Track: {{selectedTrack}}
                     </span>
                     <div>
