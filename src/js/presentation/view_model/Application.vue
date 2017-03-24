@@ -5,14 +5,14 @@
         <navigation></navigation>
         <div class="container">
             <control-panel></control-panel>
-            <score></score>
+            <pattern-editor></pattern-editor>
         </div>
     </div>
 </template>
 <script>
     import Navigation from './Navigation.vue'
     import ControlPanel from './ControlPanel.vue'
-    import Score from './Score.vue'
+    import PatternEditor from './PatternEditor.vue'
     import SequencerUsecase from '../../usecase/SequencerUsecase'
     import ServiceLocator from '../../usecase/UsecaseServiceLocator'
 
@@ -20,7 +20,7 @@
         components: {
             Navigation,
             ControlPanel,
-            Score
+            PatternEditor
         },
 
         beforeCreate() {

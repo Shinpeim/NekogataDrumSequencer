@@ -1,5 +1,4 @@
 import Sequencer from '../model/Sequencer'
-import Notificator from '../lib/Notificator'
 
 export default class {
     constructor(){
