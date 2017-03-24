@@ -13,6 +13,7 @@
     import Navigation from './Navigation.vue'
     import ControlPanel from './ControlPanel.vue'
     import Score from './Score.vue'
+    import SequencerUsecase from '../../usecase/SequencerUsecase'
 
     export default {
         components: {
@@ -20,5 +21,9 @@
             ControlPanel,
             Score
         },
+
+        beforeCreate() {
+            this.usecase = new SequencerUsecase();
+        }
     }
 </script>
