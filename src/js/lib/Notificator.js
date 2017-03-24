@@ -12,6 +12,12 @@ export default class {
         return new Subscription(this._subscriptionId, this);
     }
 
+    notify(e){
+        for (const key in this.subscribers ) {
+            this.subscribers[key](e);
+        }
+    }
+
     remove(subscriptionId) {
         delete this.subscribers[subscriptionId];
     }

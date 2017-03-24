@@ -13,14 +13,22 @@
                         Track: {{selectedTrack}}
                     </span>
                     <div>
-                        <input name="track" type="radio" value="H.H." id="radio-track-1" v-model="selectedTrack" @change="setTrack"/>
-                        <label for="radio-track-1">H.H.</label>
-                        <input name="track" type="radio" value="S.D" id="radio-track-2" v-model="selectedTrack" @change="setTrack"/>
-                        <label for="radio-track-2">S.D.</label>
-                        <input name="track" type="radio" value="B.D." id="radio-track-3" v-model="selectedTrack" @change="setTrack"/>
-                        <label for="radio-track-3">B.D.</label>
-                        <input name="track" type="radio" value="R.S." id="radio-track-4" v-model="selectedTrack" @change="setTrack"/>
-                        <label for="radio-track-4">R.S.</label>
+                        <p>
+                            <input name="track" type="radio" value="HH" id="radio-track-1" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-1">HH</label>
+                        </p>
+                        <p>
+                            <input name="track" type="radio" value="SD" id="radio-track-2" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-2">SD</label>
+                        </p>
+                        <p>
+                            <input name="track" type="radio" value="BD" id="radio-track-3" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-3">BD</label>
+                        </p>
+                        <p>
+                            <input name="track" type="radio" value="RS" id="radio-track-4" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-4">RS</label>
+                        </p>
                     </div>
                 </div>
                 <div class="card horizontal">
@@ -61,10 +69,16 @@
             this.usecase = ServiceLocator.resolve("SequencerUsecase");
         },
 
+        created(){
+            this.usecase.sequencer.selectedPatternChanged.subscribe(() => {
+                this.selectedTrack = this.usecase.sequencer.selectedPattern.selectedTrack;
+            });
+        },
+
         data(){
             return {
-                selectedTrack: "H.H."
-            }
+                selectedTrack: this.usecase.sequencer.selectedPattern.selectedTrack
+            };
         },
 
         methods: {
