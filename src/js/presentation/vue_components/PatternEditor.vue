@@ -12,20 +12,20 @@
                     </span>
                     <div>
                         <p>
-                            <input name="track" type="radio" value="HH" id="radio-track-1" v-model="selectedTrack" @change="setTrack"/>
-                            <label for="radio-track-1">HH</label>
+                            <input name="track" type="radio" value="BD" id="radio-track-bd" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-bd">BD</label>
                         </p>
                         <p>
-                            <input name="track" type="radio" value="SD" id="radio-track-2" v-model="selectedTrack" @change="setTrack"/>
-                            <label for="radio-track-2">SD</label>
+                            <input name="track" type="radio" value="SD" id="radio-track-SD" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-SD">SD</label>
                         </p>
                         <p>
-                            <input name="track" type="radio" value="BD" id="radio-track-3" v-model="selectedTrack" @change="setTrack"/>
-                            <label for="radio-track-3">BD</label>
+                            <input name="track" type="radio" value="HH" id="radio-track-HH" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-HH">HH</label>
                         </p>
                         <p>
-                            <input name="track" type="radio" value="RS" id="radio-track-4" v-model="selectedTrack" @change="setTrack"/>
-                            <label for="radio-track-4">RS</label>
+                            <input name="track" type="radio" value="RS" id="radio-track-RS" v-model="selectedTrack" @change="setTrack"/>
+                            <label for="radio-track-RS">RS</label>
                         </p>
                     </div>
                 </div>
