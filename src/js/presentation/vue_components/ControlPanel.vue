@@ -6,7 +6,7 @@
             <div class="card horizontal">
                 <div class="card-image left-pane">
                     <div class="card-content">
-                        <a class="btn-floating btn-large waves-effect waves-light" @click="togglePlayingState">
+                        <a :class="{'disabled': ! isSoundsInited}" class="btn-floating btn-large waves-effect waves-light" @click="togglePlayingState">
                             <i class="material-icons">{{playButtonIcon}}</i>
                         </a>
                     </div>
@@ -66,13 +66,21 @@
                     this.bpm= this.usecase.player.bpm;
                 })
             );
+
+            this.subscriptions.push(
+                this.usecase.isSoundsInitedChanged.subscribe(() => {
+                    console.debug(this.usecase.player);
+                    this.isSoundsInited = this.usecase.player.isSoundsInited;
+                })
+            );
         },
 
         data(){
             return {
-                bpm: "120",
-                selectedPatternId: "1",
-                playingState: false
+                bpm: this.usecase.player.bpm,
+                selectedPatternId: this.usecase.sequencer.selectedPatternId,
+                playingState: this.usecase.player.playingState,
+                isSoundsInited: this.usecase.player.isSoundsInited
             }
         },
 

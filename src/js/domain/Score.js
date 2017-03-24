@@ -1,8 +1,8 @@
 export default class {
     constructor(){
         this.notes = [
-            false, false, false, false, false, false, false, false,
-            false, false, false, false, false, false, false, false
+            true, false, false, false, true, false, false, false,
+            true, false, false, false, true, false, false, false
         ];
     }
 
