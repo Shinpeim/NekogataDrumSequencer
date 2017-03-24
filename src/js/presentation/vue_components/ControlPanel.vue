@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col s12">
             <div class="card horizontal">
-                <div class="card-image left-pane">
+                <div class="card-image left-pane brown">
                     <div class="card-content">
                         <a :class="{'disabled': ! isSoundsInited}" class="btn-floating btn-large waves-effect waves-light" @click="togglePlayingState">
                             <i class="material-icons">{{playButtonIcon}}</i>
