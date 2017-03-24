@@ -22,25 +22,17 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <span class="brown-text">
-                            Track: {{trackNo}}
+                            Pattern: {{selectedPatternId}}
                         </span>
                         <div>
-                            <input name="track" type="radio" value="1" id="radio-track-1" v-model="trackNo"/>
-                            <label for="radio-track-1"></label>
-                            <input name="track" type="radio" value="2" id="radio-track-2" v-model="trackNo"/>
-                            <label for="radio-track-2"></label>
-                            <input name="track" type="radio" value="3" id="radio-track-3" v-model="trackNo"/>
-                            <label for="radio-track-3"></label>
-                            <input name="track" type="radio" value="4" id="radio-track-4" v-model="trackNo"/>
-                            <label for="radio-track-4"></label>
-                            <input name="track" type="radio" value="5" id="radio-track-5" v-model="trackNo"/>
-                            <label for="radio-track-5"></label>
-                            <input name="track" type="radio" value="6" id="radio-track-6" v-model="trackNo"/>
-                            <label for="radio-track-6"></label>
-                            <input name="track" type="radio" value="7" id="radio-track-7" v-model="trackNo"/>
-                            <label for="radio-track-7"></label>
-                            <input name="track" type="radio" value="8" id="radio-track-8" v-model="trackNo"/>
-                            <label for="radio-track-8"></label>
+                            <input name="pattern" type="radio" value="1" id="radio-pattern-1" v-model="selectedPatternId"/>
+                            <label for="radio-pattern-1"></label>
+                            <input name="pattern" type="radio" value="2" id="radio-pattern-2" v-model="selectedPatternId"/>
+                            <label for="radio-pattern-2"></label>
+                            <input name="pattern" type="radio" value="3" id="radio-pattern-3" v-model="selectedPatternId"/>
+                            <label for="radio-pattern-3"></label>
+                            <input name="pattern" type="radio" value="4" id="radio-pattern-4" v-model="selectedPatternId"/>
+                            <label for="radio-pattern-4"></label>
                         </div>
                     </div>
                 </div>
@@ -53,7 +45,7 @@
         data(){
             return {
                 bpm: "120",
-                trackNo: "1"
+                selectedPatternId: "1"
             }
         },
 
