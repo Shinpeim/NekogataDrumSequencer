@@ -8,6 +8,7 @@ export default class {
     setup(){
         return new Promise((resolve, reject) => {
             try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
                 this._context = new AudioContext();
                 console.debug("audio context created");
                 resolve();
