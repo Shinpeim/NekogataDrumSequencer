@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha-webpack --webpack-config webpack.test.config.js \"test/**/*.test.js\"",
     "build": "npm run clean && mkdir -p build/sounds && cp src/index.html build/index.html && cp src/sounds/* build/sounds/ && webpack",
     "watch": "npm run clean && mkdir -p build/sounds && cp src/index.html build/index.html && cp src/sounds/* build/sounds/ && webpack -w",
     "clean": "rm -rf build/*"
@@ -27,6 +27,8 @@
     "css-loader": "^0.27.3",
     "file-loader": "^0.10.1",
     "mocha": "^3.2.0",
+    "mocha-webpack": "^0.7.0",
+    "sinon": "^2.1.0",
     "style-loader": "^0.16.0",
     "url-loader": "^0.5.8",
     "vue-loader": "^11.2.0",

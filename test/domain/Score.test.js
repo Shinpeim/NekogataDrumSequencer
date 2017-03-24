@@ -3,7 +3,7 @@ import Score from '../../src/js/domain/Score'
 
 describe('Score', () => {
     let score;
-    before(() => {
+    beforeEach(() => {
         const notes = [
             true, false, true, false, true, false, true, false,
             true, false, true, false, true, false, true, false
