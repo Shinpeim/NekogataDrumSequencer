@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && mkdir -p build/sounds && cp src/index.html build/index.html && cp src/sounds/* build/sounds/ && webpack",
-    "watch": "npm build && webpack -w",
+    "watch": "npm run clean && mkdir -p build/sounds && cp src/index.html build/index.html && cp src/sounds/* build/sounds/ && webpack -w",
     "clean": "rm -rf build/*"
   },
   "repository": {
