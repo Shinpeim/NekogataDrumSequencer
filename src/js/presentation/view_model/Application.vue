@@ -14,6 +14,7 @@
     import ControlPanel from './ControlPanel.vue'
     import Score from './Score.vue'
     import SequencerUsecase from '../../usecase/SequencerUsecase'
+    import ServiceLocator from '../../usecase/UsecaseServiceLocator'
 
     export default {
         components: {
@@ -23,7 +24,7 @@
         },
 
         beforeCreate() {
-            this.usecase = new SequencerUsecase();
+            ServiceLocator.register('SequencerUsecase',new SequencerUsecase());
         }
     }
 </script>

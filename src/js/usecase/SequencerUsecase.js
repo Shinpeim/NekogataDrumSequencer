@@ -4,4 +4,8 @@ export default class {
     constructor(){
         this.sequencer = new Sequencer();
     }
+
+    selectPattern(id) {
+        this.sequencer.selectPattern(id);
+    }
 }

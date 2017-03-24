@@ -1,6 +1,10 @@
 import Score from './Score'
 
 export default class {
+    get selectedScore(){
+        return this.scores[this.selectedTrack];
+    }
+
     constructor(){
         this.tracks = ["HH", "BD", "SD", "RS"];
 

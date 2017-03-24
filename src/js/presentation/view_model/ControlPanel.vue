@@ -41,7 +41,17 @@
     </div>
 </template>
 <script>
+    import ServiceLocator from '../../usecase/UsecaseServiceLocator'
+
     export default {
+        created(){
+            this.usecase = ServiceLocator.resolve("SequencerUsecase");
+
+            this.$watch('selectedPatternId', () => {
+                this.usecase.selectPattern(this.selectedPatternId);
+            });
+        },
+
         data(){
             return {
                 bpm: "120",
