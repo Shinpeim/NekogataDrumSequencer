@@ -44,7 +44,7 @@
     import ServiceLocator from '../../usecase/UsecaseServiceLocator'
 
     export default {
-        created(){
+        beforeCreate(){
             this.usecase = ServiceLocator.resolve("SequencerUsecase");
         },
 
