@@ -10,6 +10,16 @@ export default class {
         this.bpm = 120;
     }
 
+    initSounds() {
+        const promises = [];
+        for (const key in this._sounds) {
+            promises.push(this._sounds[key].setup());
+        }
+        return Promise.all(promises).then(()=>{
+            this.isSoundsInited = true;
+        });
+    }
+
     togglePlayingState(){
         if ( ! this.isSoundsInited ) {
             return;
@@ -19,16 +29,6 @@ export default class {
         } else {
             this._play();
         }
-    }
-
-    initSounds() {
-        const promises = [];
-        for (const key in this._sounds) {
-            promises.push(this._sounds[key].setup());
-        }
-        return Promise.all(promises).then(()=>{
-            this.isSoundsInited = true;
-        });
     }
 
     setBpm(bpm){
