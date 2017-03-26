@@ -2,7 +2,7 @@
 
 ## これはなに？
 
-しんぺい a.k.a. 猫型蓄音機が、MVVMとCleanArchitectureの解説のために作ったでもアプリケーションです。「状態をたくさんもつ」ものとして、ドラムシーケンサーを実装しました。デモを[GithubPages](https://shinpeim.github.io/NekogataDrumSequencer/build/)で公開しています。
+しんぺい a.k.a. 猫型蓄音機が、MVVMとCleanArchitectureの解説のために作ったデモアプリケーションです。「状態をたくさんもつ」ものとして、ドラムシーケンサーを実装しました。デモを[GithubPages](https://shinpeim.github.io/NekogataDrumSequencer/build/)で公開しています。
 
 ## MVVM と DDD-like Layered Architecture
 
@@ -32,7 +32,7 @@ DDD-like Layered Architectureは、この「その他」の部分をさらに細
 
 このドキュメントでは、実際このリポジトリで開発されているアプリケーションの実装例を通じて、「それぞれのレイヤーがそれぞれをどのように呼び出したり依存したりするルールにするときれいにこれらの層が分離できるのか」について見ていきます。
 
-## MVVMの文脈から見る、ViewとViewModelとModelの関係
+## MVVMの文脈から見る、ViewModelの責務
 
 MVVMにおいて、（PDSの文脈における）PresentationとDomainとのやりとりを実現してくれるのはViewModelです。ViewModelは、みっつの責務を持つことでPresentationとDomainを仲介します。
 
@@ -40,7 +40,7 @@ MVVMにおいて、（PDSの文脈における）PresentationとDomainとのや�
 - Viewからのイベントに応じて、Modelのvoidなメソッドを呼び出す
 - モデルの変化イベントに応じて、モデルの値を読み出して自身のデータを更新する
 
-では、ここで実際に、ViewとViewModelの実装を見に行ってみましょう。今回のアプリケーションならば、`/presentation/vue_components`にかかれているものがViewとViewModelになります。ここでは[コントロールパネルのコンポーネント](https://github.com/Shinpeim/NekogataDrumSequencer/blob/development/src/js/presentation/vue_components/ControlPanel.vue)を見てみましょう。デモアプリの再生ボタンとかbpmスライダーがあるの部分のViewとViewModelが定義されています。
+では、ここで実際に、ViewとViewModelの実装を見に行ってみましょう。今回のアプリケーションならば、`/presentation/vue_components`にかかれているものがViewとViewModelになります。ここでは[コントロールパネルのコンポーネント](https://github.com/Shinpeim/NekogataDrumSequencer/blob/development/src/js/presentation/vue_components/ControlPanel.vue)を見てみましょう。このコンポーネントでは、デモアプリの「再生ボタンとかbpmスライダーがある部分」のViewとViewModelが定義されています。
 
 図２：再生ボタンとかbpmスライダーがある部分
 ![再生ボタンとかbpmスライダーがある部分](./image_for_readme/01.png)
