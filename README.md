@@ -49,7 +49,7 @@ MVVMにおいて、（PDSの文脈における）PresentationとDomainとのや�
 
 まずは、Viewの描画のために必要なデータの保持という責務について見ていきましょう。scriptの中身に、`data`というメソッドと`computed`というプロパティがあります（Vue.jsが定義してくれてるやつですね）が、Vue.jsにおいてはこれらがまさに「Viewのためのデータの保持」の役割です。
 
-```
+```javascript
         data(){
             return {
                 bpm: this.usecase.player.bpm,
@@ -80,7 +80,7 @@ MVVMにおいて、（PDSの文脈における）PresentationとDomainとのや�
 
 次に、Viewからのイベントに応じて、Modelのvoidなメソッドを呼び出す責務について見ていきます。`methods`というプロパティがその責務を実現しています。
 
-```
+```javascript
         methods: {
             setBpm(){
                 const bpm = document.getElementById("bpm-slider").value;
@@ -99,7 +99,7 @@ MVVMにおいて、（PDSの文脈における）PresentationとDomainとのや�
 
 bpmスライダーのViewは
 
-```
+```html
 <input type="range" id="bpm-slider" min="10" max="240" :value="bpm" @input="setBpm"/>
 ```
 
@@ -113,7 +113,7 @@ bpmスライダーのViewは
 
 MVVMアーキテクチャでは、ModelからViewModelへのコミュニケーションは「Modelが変化したよ」というイベントを通知する形で行います。ViewModelは、そのイベントを受け取ったら、Modelの内容を読み取って、自身のデータに書き戻します。それを行っているのが`created`プロパティです。
 
-```
+```javascript
        created(){
             this.subscriptions.push(
                 // (1)
@@ -145,7 +145,7 @@ MVVMアーキテクチャでは、ModelからViewModelへのコミュニケー�
 
 まずは
 
-```
+```javascript
 this.usecase.selectedPatternChanged.subscribe(() => {
     this.selectedPatternId = this.usecase.sequencer.selectedPatternId;
 })
@@ -370,7 +370,7 @@ soundsというのは、鳴らす音を表したオブジェクトです。BDだ
 
 さて、では、リスナーの中身を見てみましょう。
 
-```
+```javascript
     _playNextSound(){
         if (this.playingState == false) {
             this.playingNoteIndex = null;
@@ -408,7 +408,7 @@ soundsというのは、鳴らす音を表したオブジェクトです。BDだ
 
 そういう「技術的な詳細」については、「インフラストラクチャ層」に書いていきましょう。
 
-```
+```javascript
 let context = null;
 
 export default class {
@@ -544,7 +544,7 @@ DIがわからない、という人は、ちょっと話をすると長くなる
 
 さて、今回のアプリケーションでは、JavaScriptにはInterfaceという概念がないため、とくにInterfaceは定義せず、コンストラクタにオブジェクトを直接ぶっこんでDIを実現しています。
 
-```
+```javascript
 // presentation/vue_components/Application.vue
 
 const usecase = new SequencerUsecase(ticker, sounds);
