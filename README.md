@@ -510,7 +510,7 @@ Soundというインフラストラクチャ層の技術的要請で、wavファ
 
 今回のアプリケーションでは、`src/js/usecase`がアプリケーションレイヤーを担っています。ほんとうに「窓口」になっていて、イベントを取りまとめたりドメインモデルをdispatchしているだけなので、一気に見てしまいましょう。
 
-```
+```javascript
 // SequencerUsecase
 class {
     constructor(ticker, sounds){
