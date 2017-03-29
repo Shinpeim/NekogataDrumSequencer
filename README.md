@@ -146,6 +146,7 @@ MVVMアーキテクチャでは、ModelからViewModelへのコミュニケー�
 まずは
 
 ```javascript
+//(1)
 this.usecase.selectedPatternChanged.subscribe(() => {
     this.selectedPatternId = this.usecase.sequencer.selectedPatternId;
 })
