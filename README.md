@@ -701,7 +701,7 @@ MVVMや、Layered Architecture、そしてCleanArchitectureについて、互い
 - MVVMは、どうやってプレゼンテーション層とその他を分けるかの具体的な指針である
 - Layered Architecuterは、「その他」の部分もたくさんの層に分けよう、という考え方である
   - DDDの文脈では、よく「プレゼンテーション」「アプリケーション」「ドメイン」「インフラストラクチャ」という分け方をする。これをこの記事ではDDD-like Layered Architectureと便宜的に呼んだ
-- Layered Architecuterを採用した際、ObserverパターンやDIPなどを利用して、「外側」のレイヤーが「内側」のレイヤーに依存する（逆は駄目）とするのが、CleanArchitectureのコンセプトである。
+- Layered Architecuterを採用した際、ObserverパターンやDIなどを利用して、「外側」のレイヤーが「内側」のレイヤーに依存する（逆は駄目）とするのが、CleanArchitectureのコンセプトである。
   - CleanArchitectureは特定のレイヤーの分け方やレイヤー間のコミュニケーション方法を定義していない
 
 さて、これで、それぞれのアーキテクチャの解説を終えますが、最後にとても重用なことを念押ししておきます。
